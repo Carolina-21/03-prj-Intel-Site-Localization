@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap');
+
 /* Intel-inspired responsive timeline styles */
 :root {
-  --background: #f6fbff;
-  --hero-surface: #0f3768;
-  --surface: #f7fbff;
-  --text: #102542;
-  --muted: #556d92;
-  --primary: #1f66d0;
-  --accent: #85b8ff;
-  --shadow: rgba(16, 37, 66, 0.12);
+  --background: #eef4fb;
+  --hero-surface: rgba(230, 245, 255, 0.92);
+  --surface: rgba(255, 255, 255, 0.9);
+  --text: #1f324f;
+  --muted: #6e7b8f;
+  --primary: #6ea8f7;
+  --accent: #f9db7d;
+  --shadow: rgba(31, 50, 79, 0.12);
 }
 
 * {
@@ -21,9 +23,11 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top left, rgba(134, 189, 255, 0.25), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(76, 143, 255, 0.12), transparent 20%),
-    linear-gradient(180deg, #edf6ff 0%, #f9fdff 38%, #ffffff 100%);
+  background:
+    linear-gradient(180deg, rgba(238, 244, 251, 0.97), rgba(250, 250, 244, 0.95) 35%, rgba(255, 255, 255, 0.95) 100%),
+    radial-gradient(circle at top left, rgba(138, 193, 241, 0.18), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(248, 219, 125, 0.14), transparent 18%),
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat;
   color: var(--text);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
@@ -38,9 +42,8 @@ img {
   position: relative;
   padding: 52px 20px 56px;
   background:
-    radial-gradient(circle at 20% 12%, rgba(255,255,255,0.18), transparent 18%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.12), transparent 20%),
-    linear-gradient(160deg, #0f3768 0%, #1d5fa7 45%, #61a6ff 100%);
+    linear-gradient(160deg, rgba(39, 113, 204, 0.95) 0%, rgba(118, 184, 235, 0.85) 42%, rgba(255, 239, 156, 0.15) 100%),
+    url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=70') center/cover no-repeat;
   color: #ffffff;
   overflow: hidden;
 }
@@ -97,30 +100,6 @@ img {
   margin-top: 30px;
 }
 
-.hero::before,
-.hero::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.22;
-}
-
-.hero::before {
-  width: 220px;
-  height: 220px;
-  top: -40px;
-  right: -40px;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.hero::after {
-  width: 140px;
-  height: 140px;
-  bottom: -20px;
-  left: 12%;
-  background: rgba(255, 255, 255, 0.12);
-}
-
 .hero-content {
   position: relative;
   max-width: 900px;
@@ -135,10 +114,33 @@ img {
 
 .hero-eyebrow {
   margin: 0;
-  color: #f4e1ce;
+  color: #f7f6ea;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-size: 0.9rem;
+}
+
+h1,
+h2,
+h3,
+.feature-card h2,
+.accordion-button,
+.modal-title,
+#subscribe-heading {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 400;
+}
+
+h1 {
+  text-shadow: 0 1px 10px rgba(31, 50, 79, 0.15);
+}
+
+.feature-card h2,
+.accordion-button,
+.modal-title,
+#subscribe-heading,
+h3 {
+  color: #1d2f55;
 }
 
 .hero h1 {
@@ -173,11 +175,12 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: rgba(138, 122, 82, 0.14);
+  background: rgba(249, 219, 125, 0.24);
 }
 
 .subscription-form {
-  border: 1px solid rgba(140, 122, 88, 0.18);
+  border: 1px solid rgba(141, 159, 179, 0.3);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 .site-footer {

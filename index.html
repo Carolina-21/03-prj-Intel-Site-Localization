@@ -202,6 +202,106 @@
         </div>
       </div>
     </section>
+
+    <section class="container my-5" aria-labelledby="explore-accordion-heading">
+      <div class="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-start gap-3">
+        <div>
+          <h2 id="explore-accordion-heading" class="h3 mb-1">Explore Intel Sustainability</h2>
+          <p class="text-muted mb-0">
+            Open these cards to discover how energy, water, and circular practices power the journey.
+          </p>
+        </div>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="collapse" data-bs-target="#collapseEnergy" aria-expanded="false" aria-controls="collapseEnergy">
+          Toggle highlight
+        </button>
+      </div>
+      <div class="accordion" id="sustainabilityAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEnergy" aria-expanded="false" aria-controls="collapseEnergy">
+              Energy efficiency milestones
+            </button>
+          </h2>
+          <div id="collapseEnergy" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#sustainabilityAccordion">
+            <div class="accordion-body">
+              Intel reduces energy use with smart manufacturing, efficient products, and renewable power investments.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWater" aria-expanded="false" aria-controls="collapseWater">
+              Water stewardship programs
+            </button>
+          </h2>
+          <div id="collapseWater" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#sustainabilityAccordion">
+            <div class="accordion-body">
+              Water reuse, conservation, and local community support are central to Intel’s sustainability strategy.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCircular" aria-expanded="false" aria-controls="collapseCircular">
+              Circular manufacturing
+            </button>
+          </h2>
+          <div id="collapseCircular" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#sustainabilityAccordion">
+            <div class="accordion-body">
+              Recycled materials, reduced waste, and product take-back make Intel’s manufacturing more circular.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const rtlLanguageCodes = ['ar', 'he', 'fa', 'ur', 'ps', 'sd', 'ug', 'ku', 'yi'];
+
+    function normalizeLanguageCode(lang) {
+      return String(lang || '').trim().toLowerCase().split('-')[0];
+    }
+
+    function detectDirectionFromText() {
+      const sample = document.body.innerText || '';
+      const rtlPattern = /[\u0591-\u08FF\uFB1D-\uFDFD\uFE70-\uFEFC]/;
+      const ltrPattern = /[A-Za-z\u00C0-\u024F]/;
+      if (rtlPattern.test(sample)) return 'rtl';
+      if (ltrPattern.test(sample)) return 'ltr';
+      return document.documentElement.getAttribute('dir') || 'ltr';
+    }
+
+    function updatePageDirection() {
+      const html = document.documentElement;
+      const lang = normalizeLanguageCode(html.lang);
+      const direction = rtlLanguageCodes.includes(lang) ? 'rtl' : detectDirectionFromText();
+      html.setAttribute('dir', direction === 'rtl' ? 'rtl' : 'ltr');
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      let changed = false;
+      for (const mutation of mutations) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
+          changed = true;
+          break;
+        }
+        if (mutation.type === 'childList' || mutation.type === 'characterData') {
+          changed = true;
+          break;
+        }
+      }
+      if (changed) {
+        window.requestAnimationFrame(updatePageDirection);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updatePageDirection();
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+      observer.observe(document.body, { childList: true, characterData: true, subtree: true });
+    });
+  </script>
 </body>
 </html>

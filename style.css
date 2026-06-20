@@ -36,8 +36,30 @@ img {
   padding: 52px 20px 56px;
   background: linear-gradient(135deg, var(--hero-surface), #a7ba90 65%, #d8c3a5 100%);
   color: #ffffff;
-  text-align: center;
   overflow: hidden;
+}
+
+.hero-top {
+  margin-bottom: 32px;
+}
+
+.hero-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-controls {
+  min-width: 190px;
+}
+
+.hero-controls .form-select {
+  width: 100%;
+  max-width: 220px;
+}
+
+.hero-actions {
+  margin-top: 30px;
 }
 
 .hero::before,
@@ -68,6 +90,7 @@ img {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .logo {
@@ -76,7 +99,7 @@ img {
 }
 
 .hero-eyebrow {
-  margin: 0 0 14px;
+  margin: 0;
   color: #f4e1ce;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -94,6 +117,36 @@ img {
   max-width: 720px;
   color: #f7efe2;
   font-size: 1.08rem;
+}
+
+.feature-card h2,
+.feature-card p {
+  margin: 0;
+}
+
+.feature-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.15rem;
+}
+
+.heading-icon {
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgba(138, 122, 82, 0.14);
+}
+
+.subscription-form {
+  border: 1px solid rgba(140, 122, 88, 0.18);
+}
+
+.site-footer {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 main {
@@ -183,6 +236,10 @@ main {
   opacity: 1;
 }
 
+.card .btn {
+  min-width: 120px;
+}
+
 .timeline-note {
   margin: 22px auto 0;
   max-width: 760px;
@@ -215,6 +272,18 @@ main {
 
   .hero-copy {
     font-size: 1rem;
+  }
+
+  .hero-top {
+    gap: 20px;
+  }
+
+  .hero-controls {
+    align-items: stretch;
+  }
+
+  .hero-actions {
+    gap: 10px;
   }
 
   .card {
